@@ -18,7 +18,7 @@ const CreditCard = () => {
         console.log(e.target.value);
 
         const { maxLength, id } = e.target;
-        const [fieldName, fieldIndex] = id.split("-");
+        const [ fieldIndex] = id.split("-");
 
         let fieldIntIndex = parseInt(fieldIndex, 10);
 
@@ -41,11 +41,12 @@ const CreditCard = () => {
 
     let newid = ((data.length) + 1).toString()
     const cardInfo = [Object.values(input), newid]
+    console.log(cardInfo);
 
     const handleSubmit = (event) => {
         console.log(input);
 
-        if (input.input1.length + input.input2.length + input.input3.length + input.input4.length != 16) {
+        if (input.input1.length + input.input2.length + input.input3.length + input.input4.length !== 16) {
             alert("Card Number Should be of 16 digits");
 
         }
@@ -66,7 +67,7 @@ const CreditCard = () => {
     
     const handelDelete = (e) => {
     let id = e;
-    let a = data.filter((obj) => obj.id != id)
+    let a = data.filter((obj) => obj.id !==  id)
     setdata(a)
     
  
